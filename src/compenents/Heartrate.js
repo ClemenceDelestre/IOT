@@ -1,7 +1,7 @@
-function Heartrate() {
-    return (
-      <div>Nouveau Composant</div>
-    )
-  }
+const RythmeCardiaque = 40 + Math.floor(Math.random() * (200 - 40));
 
-export default Heartrate 
+function Heartrate() {
+  return <div>{RythmeCardiaque}</div>;
+}
+
+export default Heartrate;
