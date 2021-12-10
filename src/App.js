@@ -1,5 +1,6 @@
 import logo from './heartrate.svg';
 import './App.css';
+import Heartrate from './compenents/Heartrate';
 
 function App() {
   return (
@@ -9,8 +10,7 @@ function App() {
           Les battements du coeur en temps réel
       </p>
       <img src={logo} className="App-logo" alt="logo" />
-      <p> Nouveau Composant </p>
-        
+      <Heartrate/>
       </header>
     </div>
   );
