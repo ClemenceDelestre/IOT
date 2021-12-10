@@ -1,10 +1,11 @@
 import logo from './heartrate.svg';
 import './App.css';
-import Heartrate from './compenents/Heartrate';
+import Heartrate from './components/Heartrate';
+import Graphique from './components/Graphique';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [rythCardiaques, setRythCardiaques] = useState([50]);
+  const [rythCardiaques, setRythCardiaques] = useState([]);
 
   useEffect(() => {
     setInterval(() => {
@@ -15,15 +16,17 @@ function App() {
       setRythCardiaques((prev) => [...prev, rythCardiaque]);
     }, 3000); //délai d'exécution du callback
   }, []); //UseEffect est appelé que quand le composant est crée
-
-  const rythCardiaque = rythCardiaques[rythCardiaques.length - 1];
-  console.log(rythCardiaques);
+  let rythCardiaque = rythCardiaques[rythCardiaques.length - 1];
+  if (rythCardiaque == null) {
+    rythCardiaque = [];
+  }
   return (
     <div className="App">
       <header className="App-header">
         <p>Les battements du coeur en temps réel</p>
         <img src={logo} className="App-logo" alt="logo" />
         <Heartrate data={rythCardiaque.heartrate} />
+        <Graphique data={rythCardiaques} />
       </header>
     </div>
   );
