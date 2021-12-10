@@ -13,7 +13,11 @@ function App() {
         timestamp: new Date().getTime(),
         heartrate: 40 + Math.floor(Math.random() * (200 - 40)),
       };
-      setRythCardiaques((prev) => [...prev, rythCardiaque]);
+      setRythCardiaques((prev) => {
+        if (prev.length > 9) {
+          prev = prev.slice(-9);
+        }
+        return [...prev, rythCardiaque]});
     }, 3000); //délai d'exécution du callback
   }, []); //UseEffect est appelé que quand le composant est crée
   let rythCardiaque = rythCardiaques[rythCardiaques.length - 1];
