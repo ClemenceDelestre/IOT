@@ -1,15 +1,16 @@
-function Heartrate() {
-  //const {data} = props ; //mettre les valeurs de l'App dans le composant
-  var rythmeCardiaque = 40 + Math.floor(Math.random() * (200 - 40));
+function Heartrate(props) {
+  const {data} = props ; //mettre les valeurs de l'App dans le composant
+  console.log(data);
+  //var rythmeCardiaque = 40 + Math.floor(Math.random() * (200 - 40));
   var pbBpm = ""
   var description = " "
-  if (rythmeCardiaque<50 || rythmeCardiaque>150) {
+  if (data<50 || data>150) {
      pbBpm = "pbBpm";
-     description = rythmeCardiaque + " -> Danger";
+     description = data+ " -> Danger";
   }
   else {
      pbBpm ="bpmOk";
-     description = rythmeCardiaque + " -> Ok";
+     description = data + " -> Ok";
   }
   return <div class={pbBpm}> {description} </div>;
 }
